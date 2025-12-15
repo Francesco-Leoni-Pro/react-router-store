@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "./Products.css";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -11,18 +13,26 @@ function Products() {
   }, []);
 
   return (
-    <div>
+    <div className="products-container">
       <h1>Prodotti</h1>
-      <ul>
+
+      <div className="products-grid">
         {products.map(product => (
-          <li key={product.id}>
-            <h2>{product.title}</h2>
-            <p>{product.price} $</p>
-            <img src={product.image} alt={product.title} width={100} />
-          </li>
+          <Link
+            key={product.id}
+            to={`/products/${product.id}`}
+            className="product-link"
+          >
+            <div className="product-card">
+              <img src={product.image} alt={product.title} />
+              <h3>{product.title}</h3>
+              <p>{product.price} €</p>
+            </div>
+          </Link>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
+
 export default Products;

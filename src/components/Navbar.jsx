@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import "./Navbar.css"; // creiamo questo file
 
 function Navbar() {
   return (
-    <nav>
+    <nav className="navbar">
       <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">Chi siamo</Link></li>
@@ -11,4 +12,5 @@ function Navbar() {
     </nav>
   );
 }
+
 export default Navbar;
